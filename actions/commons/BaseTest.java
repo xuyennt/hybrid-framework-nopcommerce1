@@ -7,28 +7,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseTest {
 	private WebDriver driver;
-	String osName = System.getProperty("os.name");
-	String projectPath = System.getProperty("user.dir");
+//	String osName = System.getProperty("os.name");
+//	String projectPath = System.getProperty("user.dir");
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
-			if (osName.contains("Windows")) {
-				System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-			} else {
-				System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-				driver = new FirefoxDriver();
-			}
+//			if (osName.contains("Windows")) {
+//				System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+//			} else {
+//				System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+//				driver = new FirefoxDriver();
+				driver = WebDriverManager.firefoxdriver().create();
+//			}
 
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-			if (osName.contains("Windows")) {
-				System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-			} else {
-				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-				driver = new ChromeDriver();
-			}
-		}
+//			if (osName.contains("Windows")) {
+//				System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+//			} else {
+//				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+//				driver = new ChromeDriver();
+//			}
+				driver = WebDriverManager.chromedriver().create();
+ 	}
+	
 
 		driver.manage().window().maximize();
 		driver.get("https://demo.nopcommerce.com/");
