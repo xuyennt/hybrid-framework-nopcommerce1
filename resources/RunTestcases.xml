@@ -4,15 +4,15 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Level_05_WebDriverManager" />
+			<class name="com.nopcommerce.account.Level_07_Page_Generator_Manager_I3" />
 		</classes>
 	</test> <!-- Test -->
-	<test name="Run on Chrome">
+  <!-- #endregion <test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.nopcommerce.account.Level_05_WebDriverManager" />
 		</classes>
-	</test> 
+	</test> --> 
 <!--	<test name="Run on Edge">
 		<parameter name="browser" value="edge" />
 		<classes>
